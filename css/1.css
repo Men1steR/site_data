@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 1em sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%
+}
+
+.container {
+    width: 300px;
+    height: 100vh;
+    float: inline-start;
+    display: flex;
+    flex-direction: column;
+    border-right: #ccc 1px solid;
+}
+
+.input-container {
+    padding: 15px;
+}
+
+.chats-container {
+    height: 90svh;
+    overflow-y: auto;
+}
+
+.chat-info-container {
+    width: 100%;
+}
+
+.line {
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+   }
+
+.no-chats {
+    width: 100%;
+    text-align: center;
+}
+
+.header, .loading {
+    font-size: 15px;
+    margin-left: 5%;
+}
+
+
+.bi-search {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    top: 24px;
+    left: 40px;
+    color: #9e9e9e;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: width 0.3s ease-out, opacity 0.3s ease-out, box-shadow 0.3s;
+    border: 0px solid #ccc;
+    box-shadow: #ccc 0px 0px 0px 1px;
+    padding: 8px 12px 8px 40px;
+}
+
+.search-input:focus {
+    box-shadow: #3390ec 0px 0px 0px 2px;
+    outline: none;
+}
+
+.search-input:focus .bi-search {
+    color: #3390ec;
+}
+
+.chat {
+    padding: 5px;
+    display: flex; 
+}
+
+.chat-avatar {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    font-family: 1em sans-serif;
+    align-items: center;
+    margin-right: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.chat-item {
+    width: 220px;
+    align-self: center;
+}
+
+.chat-message {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Roboto", sans-serif;
+}
+
+.chat-name {
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.date-header {
+    border-radius: 10px;
+    background-color: hsla(103, 40%, 40%, 0.4);
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    align-self: center;
+    text-align: center;
+    padding: 5px;
+    width: fit-content;
+    min-width: 120px;
+    color: #fff;
+}
+
+.messages-container {
+    position: relative;
+    display: flex;
+    background: 
+    url('https://web.telegram.org/k/assets/img/pattern.svg') repeat-x center center,
+    linear-gradient(315deg, rgb(10, 189, 149), rgb(242, 255, 131));
+    flex-direction: column-reverse;
+    height: 100vh;
+    min-height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.message {
+    display: flex;
+}
+
+.message.hidden {
+    display: none;
+}
+
+.message.visible {
+    display: flex;
+}
+
+
+.message-avatar {
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-right: 5px;
+    margin-bottom: 1%;
+    margin-left: 3%;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.message-item {
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 5px 5px;
+    margin-bottom: 1%;
+    width: fit-content;
+    max-width: 480px;
+    min-width: 120px;
+}
+
+.message-author {
+    display: inline;
+    white-space: nowrap;
+}
+
+.message-text {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+.message-time {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    width: 100%;
+}
+
+.message-media-photo, .message-media-video, .message-media-gif, .message-media-sticker {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.message-media-photo, .message-media-video, .message-media-gif {
+    max-width: 300px;
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+}
+
+
+.message-media-sticker {
+    max-width: 250px;
+    max-height: 150px;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+}
+
+.message-media-document {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.document-icon {
+    position: relative;
+    width: 40px;
+    height: 50px;
+    background: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 45px;
+    font-weight: bold;
+    color: #666;
+    font-size: 12px;
+}
+
+.document-icon:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 12px solid #f0f0f0;
+    border-top: 12px solid #ccc;
+}
+
+.document-name {
+    font-size: 13px;
+    margin-right: 3%;
+}
+
+.message-reply {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+}
+
+.message-reply-text {
+    margin-top: 5px;
+    font-size: 13px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chats-header, .messages-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 3px solid #007bff;
+}
+
+
+@keyframes highlight {
+    0% { background-color: #f2f2f2; }
+    50% { background-color: #3390ec; }
+    100% { background-color: #fff; }
+}
+
+.message-item.highlight {
+    animation: highlight 0.8s forwards;
+}
+
+
+@media screen and (max-width: 360px) {
+    .container {
+        width: 100%;
+    }       
+
+    .messages-container {
+        display: none;
+    }   
+    
+}
+
+@media screen and (max-width: 480px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 768px;
+    }       
+
+    .messages-container {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+    
+}
